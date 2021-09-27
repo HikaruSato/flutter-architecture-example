@@ -16,7 +16,7 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 ## Demo
-
+<img src="https://user-images.githubusercontent.com/5406001/134949641-c2968fdc-7c18-4dc0-8dbb-7855ead0dec7.png" width="320" alt="demo">
 
 
 ## Add Models
