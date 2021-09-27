@@ -18,10 +18,11 @@ class _$DiaryTearOff {
   const _$DiaryTearOff();
 
   _Diary call(String id, DateTime createdAt,
-      {String content = '', String imagePath = ''}) {
+      {String title = '', String content = '', String imagePath = ''}) {
     return _Diary(
       id,
       createdAt,
+      title: title,
       content: content,
       imagePath: imagePath,
     );
@@ -35,6 +36,7 @@ const $Diary = _$DiaryTearOff();
 mixin _$Diary {
   String get id => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   String get imagePath => throw _privateConstructorUsedError;
 
@@ -46,7 +48,12 @@ mixin _$Diary {
 abstract class $DiaryCopyWith<$Res> {
   factory $DiaryCopyWith(Diary value, $Res Function(Diary) then) =
       _$DiaryCopyWithImpl<$Res>;
-  $Res call({String id, DateTime createdAt, String content, String imagePath});
+  $Res call(
+      {String id,
+      DateTime createdAt,
+      String title,
+      String content,
+      String imagePath});
 }
 
 /// @nodoc
@@ -61,6 +68,7 @@ class _$DiaryCopyWithImpl<$Res> implements $DiaryCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? createdAt = freezed,
+    Object? title = freezed,
     Object? content = freezed,
     Object? imagePath = freezed,
   }) {
@@ -73,6 +81,10 @@ class _$DiaryCopyWithImpl<$Res> implements $DiaryCopyWith<$Res> {
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
       content: content == freezed
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -90,7 +102,12 @@ abstract class _$DiaryCopyWith<$Res> implements $DiaryCopyWith<$Res> {
   factory _$DiaryCopyWith(_Diary value, $Res Function(_Diary) then) =
       __$DiaryCopyWithImpl<$Res>;
   @override
-  $Res call({String id, DateTime createdAt, String content, String imagePath});
+  $Res call(
+      {String id,
+      DateTime createdAt,
+      String title,
+      String content,
+      String imagePath});
 }
 
 /// @nodoc
@@ -106,6 +123,7 @@ class __$DiaryCopyWithImpl<$Res> extends _$DiaryCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? createdAt = freezed,
+    Object? title = freezed,
     Object? content = freezed,
     Object? imagePath = freezed,
   }) {
@@ -118,6 +136,10 @@ class __$DiaryCopyWithImpl<$Res> extends _$DiaryCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
       content: content == freezed
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -133,13 +155,17 @@ class __$DiaryCopyWithImpl<$Res> extends _$DiaryCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Diary extends _Diary {
-  _$_Diary(this.id, this.createdAt, {this.content = '', this.imagePath = ''})
+  _$_Diary(this.id, this.createdAt,
+      {this.title = '', this.content = '', this.imagePath = ''})
       : super._();
 
   @override
   final String id;
   @override
   final DateTime createdAt;
+  @JsonKey(defaultValue: '')
+  @override
+  final String title;
   @JsonKey(defaultValue: '')
   @override
   final String content;
@@ -149,7 +175,7 @@ class _$_Diary extends _Diary {
 
   @override
   String toString() {
-    return 'Diary(id: $id, createdAt: $createdAt, content: $content, imagePath: $imagePath)';
+    return 'Diary(id: $id, createdAt: $createdAt, title: $title, content: $content, imagePath: $imagePath)';
   }
 
   @override
@@ -161,6 +187,8 @@ class _$_Diary extends _Diary {
             (identical(other.createdAt, createdAt) ||
                 const DeepCollectionEquality()
                     .equals(other.createdAt, createdAt)) &&
+            (identical(other.title, title) ||
+                const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.content, content) ||
                 const DeepCollectionEquality()
                     .equals(other.content, content)) &&
@@ -174,6 +202,7 @@ class _$_Diary extends _Diary {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(createdAt) ^
+      const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(content) ^
       const DeepCollectionEquality().hash(imagePath);
 
@@ -185,13 +214,15 @@ class _$_Diary extends _Diary {
 
 abstract class _Diary extends Diary {
   factory _Diary(String id, DateTime createdAt,
-      {String content, String imagePath}) = _$_Diary;
+      {String title, String content, String imagePath}) = _$_Diary;
   _Diary._() : super._();
 
   @override
   String get id => throw _privateConstructorUsedError;
   @override
   DateTime get createdAt => throw _privateConstructorUsedError;
+  @override
+  String get title => throw _privateConstructorUsedError;
   @override
   String get content => throw _privateConstructorUsedError;
   @override

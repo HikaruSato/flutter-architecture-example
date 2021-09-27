@@ -2,6 +2,7 @@ import 'package:example_app/models/app_exception.dart';
 import 'package:example_app/models/diary.dart';
 import 'package:example_app/models/states/diaries_page_state.dart';
 import 'package:example_app/repositories/diary_repository_impl.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final diariesPageViewModelProvider =
@@ -18,17 +19,22 @@ class DiariesPageViewModel extends StateNotifier<DiariesPageState> {
 
   bool _isAllDiariesLoaded = false;
 
-  Future<void> getDiaries({isInit = false}) async {
+  Future<void> getDiaries({
+    isInit = false,
+    isLoadingIndicatorShown = false,
+  }) async {
     if (isInit) {
-      _isAllDiariesLoaded = true;
+      _isAllDiariesLoaded = false;
     }
 
     if (_isAllDiariesLoaded) return Future.value();
 
-    state = state.copyWith(isLoading: true);
+    if (isLoadingIndicatorShown) {
+      state = state.copyWith(isLoading: true);
+    }
 
     try {
-      List<Diary> allDiaries = state.diaries;
+      List<Diary> allDiaries = [...state.diaries];
       List<Diary> diaries;
 
       if (isInit) {
@@ -45,13 +51,16 @@ class DiariesPageViewModel extends StateNotifier<DiariesPageState> {
       state = state.copyWith(
         isLoading: false,
         diaries: allDiaries..addAll(diaries),
+        exception: null,
       );
     } on Exception catch (e) {
+      debugPrint(e.toString());
       state = state.copyWith(
         isLoading: false,
         exception: AppException(innerException: e, message: '一覧の取得に失敗しました'),
       );
     } catch (e) {
+      debugPrint(e.toString());
       state = state.copyWith(
         isLoading: false,
         exception: AppException(message: '一覧の取得に失敗しました'),

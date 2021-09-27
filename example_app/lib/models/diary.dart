@@ -8,7 +8,9 @@ class Diary with _$Diary {
   const Diary._();
 
   factory Diary(String id, DateTime createdAt,
-      {@Default('') String content, @Default('') String imagePath}) = _Diary;
+      {@Default('') String title,
+      @Default('') String content,
+      @Default('') String imagePath}) = _Diary;
 
   String get formattedCreatedAtString =>
       createdAt.formattedString(format: 'yyyy/MM/dd(E)');

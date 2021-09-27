@@ -15,14 +15,18 @@ class DiaryRepositoryImpl implements DiaryRepository {
   @override
   Future<List<Diary>> getDiaries({startIndex = 0, count = 30}) async {
     List<Diary> diaries = [];
-    for (var i = startIndex; i <= count; i++) {
-      if (i == maxCount - 1) break;
+    for (var i = startIndex; i < (startIndex + count); i++) {
+      if (i >= maxCount) break;
 
+      await Future.delayed(const Duration(milliseconds: 10));
+
+      final number = i + 1;
       diaries.add(
         Diary(
           i.toString(),
           DateTime.now(),
-          content: 'コンテンツ$i',
+          title: 'タイトル$number',
+          content: '$number番目のコンテンツです',
           imagePath: 'assets/cat${i % 3 + 1}.jpg',
         ),
       );
