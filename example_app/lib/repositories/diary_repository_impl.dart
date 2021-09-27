@@ -18,7 +18,7 @@ class DiaryRepositoryImpl implements DiaryRepository {
     for (var i = startIndex; i < (startIndex + count); i++) {
       if (i >= maxCount) break;
 
-      await Future.delayed(const Duration(milliseconds: 10));
+      await Future.delayed(const Duration(milliseconds: 30));
 
       final number = i + 1;
       diaries.add(
