@@ -1,4 +1,4 @@
-import 'package:example_app/ui/component/loading.dart';
+import 'package:example_app/ui/components/loading.dart';
 import 'package:example_app/view_models/diaries_page_view_model_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
