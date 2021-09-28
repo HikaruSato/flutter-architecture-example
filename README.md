@@ -1,6 +1,7 @@
 # example_app
 
 A new Flutter project.
+https://note.com/hikarusato/n/n59ad456faaf1
 
 ## Getting Started
 
