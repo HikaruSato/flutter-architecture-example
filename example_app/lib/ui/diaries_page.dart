@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class DiariesPage extends HookWidget {
+class DiariesPage extends HookConsumerWidget {
   const DiariesPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final viewModel = useProvider(diariesPageViewModelProvider.notifier);
-    final state = useProvider(diariesPageViewModelProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final viewModel = ref.watch(diariesPageViewModelProvider.notifier);
+    final state = ref.watch(diariesPageViewModelProvider);
 
     useEffect(() {
       Future(() {
