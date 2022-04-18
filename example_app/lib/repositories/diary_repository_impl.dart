@@ -10,7 +10,7 @@ final diaryRepositoryProvider = Provider((ref) => DiaryRepositoryImpl());
 class DiaryRepositoryImpl implements DiaryRepository {
   DiaryRepositoryImpl();
 
-  final int maxCount = 100;
+  final int maxCount = 1000;
 
   @override
   Future<List<Diary>> getDiaries({startIndex = 0, count = 30}) async {
