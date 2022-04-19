@@ -5,17 +5,14 @@ import 'package:example_app/repositories/diary_repository_impl.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final diariesPageViewModelProvider =
-    StateNotifierProvider.autoDispose<DiariesPageViewModel, DiariesPageState>(
-        (ref) => DiariesPageViewModel(ref.read));
+final diariesControllerProvider = StateNotifierProvider.autoDispose<DiariesController, DiariesPageState>((ref) => DiariesController(ref.read));
 
-class DiariesPageViewModel extends StateNotifier<DiariesPageState> {
-  DiariesPageViewModel(this._reader) : super(DiariesPageState());
+class DiariesController extends StateNotifier<DiariesPageState> {
+  DiariesController(this._reader) : super(DiariesPageState());
 
   final Reader _reader;
 
-  late final DiaryRepository _diaryRepository =
-      _reader(diaryRepositoryProvider);
+  late final DiaryRepository _diaryRepository = _reader(diaryRepositoryProvider);
 
   bool _isAllDiariesLoaded = false;
 

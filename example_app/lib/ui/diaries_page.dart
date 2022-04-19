@@ -1,5 +1,5 @@
+import 'package:example_app/controllers/diaries_controller.dart';
 import 'package:example_app/ui/components/loading.dart';
-import 'package:example_app/view_models/diaries_page_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -9,12 +9,12 @@ class DiariesPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final viewModel = ref.watch(diariesPageViewModelProvider.notifier);
-    final state = ref.watch(diariesPageViewModelProvider);
+    final controller = ref.watch(diariesControllerProvider.notifier);
+    final state = ref.watch(diariesControllerProvider);
 
     useEffect(() {
       Future(() {
-        viewModel.getDiaries(isInit: true, isLoadingIndicatorShown: true);
+        controller.getDiaries(isInit: true, isLoadingIndicatorShown: true);
       });
     }, const []);
 
@@ -22,8 +22,7 @@ class DiariesPage extends HookConsumerWidget {
     final exception = state.exception;
     if (exception != null) {
       Future(() {
-        final snackBar =
-            SnackBar(content: Text(exception.message ?? 'エラーが発生しました'));
+        final snackBar = SnackBar(content: Text(exception.message ?? 'エラーが発生しました'));
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
       });
     }
@@ -39,10 +38,9 @@ class DiariesPage extends HookConsumerWidget {
         child: NotificationListener<ScrollNotification>(
           onNotification: (ScrollNotification scrollInfo) {
             const threshold = 0.9;
-            final scrollProportion =
-                scrollInfo.metrics.pixels / scrollInfo.metrics.maxScrollExtent;
+            final scrollProportion = scrollInfo.metrics.pixels / scrollInfo.metrics.maxScrollExtent;
             if (!state.isLoading && scrollProportion > threshold) {
-              viewModel.getDiaries();
+              controller.getDiaries();
             }
 
             return false;
@@ -51,7 +49,7 @@ class DiariesPage extends HookConsumerWidget {
               ? const Loading()
               : RefreshIndicator(
                   onRefresh: () async {
-                    await viewModel.getDiaries(isInit: true);
+                    await controller.getDiaries(isInit: true);
                   },
                   child: ListView.separated(
                     itemCount: state.diaries.length,
@@ -73,8 +71,7 @@ class DiariesPage extends HookConsumerWidget {
                         ),
                       );
                     },
-                    separatorBuilder: (BuildContext context, int index) =>
-                        const Divider(),
+                    separatorBuilder: (BuildContext context, int index) => const Divider(),
                   ),
                 ),
         ),
