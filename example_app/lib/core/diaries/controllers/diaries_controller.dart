@@ -1,9 +1,22 @@
 import 'package:example_app/core/diaries/models/diary.dart';
-import 'package:example_app/core/diaries/models/states/diaries_page_state.dart';
 import 'package:example_app/core/diaries/repositories/diary_repository_impl.dart';
 import 'package:example_app/shared/models/app_exception.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'diaries_controller.freezed.dart';
+
+@freezed
+class DiariesPageState with _$DiariesPageState {
+  const DiariesPageState._();
+
+  factory DiariesPageState({
+    @Default(false) bool isLoading,
+    AppException? exception,
+    @Default([]) List<Diary> diaries,
+  }) = _DiariesPageState;
+}
 
 final diariesControllerProvider = StateNotifierProvider.autoDispose<DiariesController, DiariesPageState>((ref) => DiariesController(ref.read));
 
