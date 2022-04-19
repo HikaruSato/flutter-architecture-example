@@ -1,4 +1,4 @@
-import 'package:example_app/ui/diaries_page.dart';
+import 'package:example_app/core/diaries/views/diaries_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/date_symbol_data_local.dart';
