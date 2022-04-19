@@ -1,4 +1,4 @@
-import 'package:example_app/repositories/auth_repository.dart';
+import 'package:example_app/shared/repositories/auth_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final authRepositoryProvider = Provider((ref) => AuthRepositoryImpl());

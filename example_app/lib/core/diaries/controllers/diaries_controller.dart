@@ -1,7 +1,7 @@
-import 'package:example_app/models/app_exception.dart';
-import 'package:example_app/models/diary.dart';
-import 'package:example_app/models/states/diaries_page_state.dart';
-import 'package:example_app/repositories/diary_repository_impl.dart';
+import 'package:example_app/core/diaries/models/diary.dart';
+import 'package:example_app/core/diaries/models/states/diaries_page_state.dart';
+import 'package:example_app/core/diaries/repositories/diary_repository_impl.dart';
+import 'package:example_app/shared/models/app_exception.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
