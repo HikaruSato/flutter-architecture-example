@@ -163,13 +163,13 @@ class _$_Diary extends _Diary {
   final String id;
   @override
   final DateTime createdAt;
-  @JsonKey(defaultValue: '')
+  @JsonKey()
   @override
   final String title;
-  @JsonKey(defaultValue: '')
+  @JsonKey()
   @override
   final String content;
-  @JsonKey(defaultValue: '')
+  @JsonKey()
   @override
   final String imagePath;
 
@@ -181,30 +181,23 @@ class _$_Diary extends _Diary {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Diary &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.createdAt, createdAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdAt, createdAt)) &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
-            (identical(other.content, content) ||
-                const DeepCollectionEquality()
-                    .equals(other.content, content)) &&
-            (identical(other.imagePath, imagePath) ||
-                const DeepCollectionEquality()
-                    .equals(other.imagePath, imagePath)));
+        (other.runtimeType == runtimeType &&
+            other is _Diary &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.content, content) &&
+            const DeepCollectionEquality().equals(other.imagePath, imagePath));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(createdAt) ^
-      const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(content) ^
-      const DeepCollectionEquality().hash(imagePath);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(content),
+      const DeepCollectionEquality().hash(imagePath));
 
   @JsonKey(ignore: true)
   @override
@@ -218,15 +211,15 @@ abstract class _Diary extends Diary {
   _Diary._() : super._();
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt;
   @override
-  String get title => throw _privateConstructorUsedError;
+  String get title;
   @override
-  String get content => throw _privateConstructorUsedError;
+  String get content;
   @override
-  String get imagePath => throw _privateConstructorUsedError;
+  String get imagePath;
   @override
   @JsonKey(ignore: true)
   _$DiaryCopyWith<_Diary> get copyWith => throw _privateConstructorUsedError;

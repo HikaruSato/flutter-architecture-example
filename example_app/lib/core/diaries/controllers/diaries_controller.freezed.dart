@@ -2,7 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'diaries_page_state.dart';
+part of 'diaries_controller.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -17,11 +17,11 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$DiariesPageStateTearOff {
   const _$DiariesPageStateTearOff();
 
-  _EditingDiaryState call(
+  _DiariesPageState call(
       {bool isLoading = false,
       AppException? exception,
       List<Diary> diaries = const []}) {
-    return _EditingDiaryState(
+    return _DiariesPageState(
       isLoading: isLoading,
       exception: exception,
       diaries: diaries,
@@ -84,25 +84,25 @@ class _$DiariesPageStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$EditingDiaryStateCopyWith<$Res>
+abstract class _$DiariesPageStateCopyWith<$Res>
     implements $DiariesPageStateCopyWith<$Res> {
-  factory _$EditingDiaryStateCopyWith(
-          _EditingDiaryState value, $Res Function(_EditingDiaryState) then) =
-      __$EditingDiaryStateCopyWithImpl<$Res>;
+  factory _$DiariesPageStateCopyWith(
+          _DiariesPageState value, $Res Function(_DiariesPageState) then) =
+      __$DiariesPageStateCopyWithImpl<$Res>;
   @override
   $Res call({bool isLoading, AppException? exception, List<Diary> diaries});
 }
 
 /// @nodoc
-class __$EditingDiaryStateCopyWithImpl<$Res>
+class __$DiariesPageStateCopyWithImpl<$Res>
     extends _$DiariesPageStateCopyWithImpl<$Res>
-    implements _$EditingDiaryStateCopyWith<$Res> {
-  __$EditingDiaryStateCopyWithImpl(
-      _EditingDiaryState _value, $Res Function(_EditingDiaryState) _then)
-      : super(_value, (v) => _then(v as _EditingDiaryState));
+    implements _$DiariesPageStateCopyWith<$Res> {
+  __$DiariesPageStateCopyWithImpl(
+      _DiariesPageState _value, $Res Function(_DiariesPageState) _then)
+      : super(_value, (v) => _then(v as _DiariesPageState));
 
   @override
-  _EditingDiaryState get _value => super._value as _EditingDiaryState;
+  _DiariesPageState get _value => super._value as _DiariesPageState;
 
   @override
   $Res call({
@@ -110,7 +110,7 @@ class __$EditingDiaryStateCopyWithImpl<$Res>
     Object? exception = freezed,
     Object? diaries = freezed,
   }) {
-    return _then(_EditingDiaryState(
+    return _then(_DiariesPageState(
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -129,67 +129,74 @@ class __$EditingDiaryStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EditingDiaryState extends _EditingDiaryState {
-  _$_EditingDiaryState(
+class _$_DiariesPageState extends _DiariesPageState
+    with DiagnosticableTreeMixin {
+  _$_DiariesPageState(
       {this.isLoading = false, this.exception, this.diaries = const []})
       : super._();
 
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool isLoading;
   @override
   final AppException? exception;
-  @JsonKey(defaultValue: const [])
+  @JsonKey()
   @override
   final List<Diary> diaries;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DiariesPageState(isLoading: $isLoading, exception: $exception, diaries: $diaries)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DiariesPageState'))
+      ..add(DiagnosticsProperty('isLoading', isLoading))
+      ..add(DiagnosticsProperty('exception', exception))
+      ..add(DiagnosticsProperty('diaries', diaries));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _EditingDiaryState &&
-            (identical(other.isLoading, isLoading) ||
-                const DeepCollectionEquality()
-                    .equals(other.isLoading, isLoading)) &&
-            (identical(other.exception, exception) ||
-                const DeepCollectionEquality()
-                    .equals(other.exception, exception)) &&
-            (identical(other.diaries, diaries) ||
-                const DeepCollectionEquality().equals(other.diaries, diaries)));
+        (other.runtimeType == runtimeType &&
+            other is _DiariesPageState &&
+            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality().equals(other.exception, exception) &&
+            const DeepCollectionEquality().equals(other.diaries, diaries));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(isLoading) ^
-      const DeepCollectionEquality().hash(exception) ^
-      const DeepCollectionEquality().hash(diaries);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(exception),
+      const DeepCollectionEquality().hash(diaries));
 
   @JsonKey(ignore: true)
   @override
-  _$EditingDiaryStateCopyWith<_EditingDiaryState> get copyWith =>
-      __$EditingDiaryStateCopyWithImpl<_EditingDiaryState>(this, _$identity);
+  _$DiariesPageStateCopyWith<_DiariesPageState> get copyWith =>
+      __$DiariesPageStateCopyWithImpl<_DiariesPageState>(this, _$identity);
 }
 
-abstract class _EditingDiaryState extends DiariesPageState {
-  factory _EditingDiaryState(
+abstract class _DiariesPageState extends DiariesPageState {
+  factory _DiariesPageState(
       {bool isLoading,
       AppException? exception,
-      List<Diary> diaries}) = _$_EditingDiaryState;
-  _EditingDiaryState._() : super._();
+      List<Diary> diaries}) = _$_DiariesPageState;
+  _DiariesPageState._() : super._();
 
   @override
-  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isLoading;
   @override
-  AppException? get exception => throw _privateConstructorUsedError;
+  AppException? get exception;
   @override
-  List<Diary> get diaries => throw _privateConstructorUsedError;
+  List<Diary> get diaries;
   @override
   @JsonKey(ignore: true)
-  _$EditingDiaryStateCopyWith<_EditingDiaryState> get copyWith =>
+  _$DiariesPageStateCopyWith<_DiariesPageState> get copyWith =>
       throw _privateConstructorUsedError;
 }
