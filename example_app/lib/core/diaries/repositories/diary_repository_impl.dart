@@ -5,7 +5,7 @@ abstract class DiaryRepository {
   Future<List<Diary>> getDiaries({startIndex = 0, count = 30});
 }
 
-final diaryRepositoryProvider = Provider((ref) => DiaryRepositoryImpl());
+final Provider<DiaryRepository> diaryRepositoryProvider = Provider((ref) => DiaryRepositoryImpl());
 
 class DiaryRepositoryImpl implements DiaryRepository {
   DiaryRepositoryImpl();
