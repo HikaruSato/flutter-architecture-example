@@ -43,14 +43,14 @@ void main() {
       // 初回読み込み
       mockGetDiaries = Future(() => [Diary('1', createdAt)]);
       await controller.getDiaries(isInit: true);
-      DiariesPageState state = container.read(diariesControllerProvider);
+      DiariesPageState state = controller.debugState;
       expect(state.diaries.length, 1);
       expect(state.diaries[0], Diary('1', createdAt));
 
       // 追加読み込み
       mockGetDiaries = Future(() => [Diary('2', createdAt)]);
       await controller.getDiaries();
-      state = container.read(diariesControllerProvider);
+      state = controller.debugState;
       expect(state.diaries.length, 2);
       expect(state.diaries[0], Diary('1', createdAt));
       expect(state.diaries[1], Diary('2', createdAt));
