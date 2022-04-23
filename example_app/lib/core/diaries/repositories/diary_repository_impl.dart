@@ -1,9 +1,6 @@
 import 'package:example_app/core/diaries/models/diary.dart';
+import 'package:example_app/core/diaries/repositories/diary_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-abstract class DiaryRepository {
-  Future<List<Diary>> getDiaries({startIndex = 0, count = 30});
-}
 
 final Provider<DiaryRepository> diaryRepositoryProvider = Provider((ref) => DiaryRepositoryImpl());
 

@@ -1,4 +1,5 @@
 import 'package:example_app/core/diaries/models/diary.dart';
+import 'package:example_app/core/diaries/repositories/diary_repository.dart';
 import 'package:example_app/core/diaries/repositories/diary_repository_impl.dart';
 import 'package:example_app/shared/models/app_exception.dart';
 import 'package:flutter/foundation.dart';
