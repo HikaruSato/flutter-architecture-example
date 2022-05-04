@@ -71,6 +71,37 @@ class DiariesPage extends HookConsumerWidget {
                                 fit: BoxFit.cover,
                               )),
                         ),
+                        trailing: GestureDetector(
+                          child: const Icon(Icons.more_horiz_rounded),
+                          onTapDown: (details) {
+                            final position = details.globalPosition;
+                            showMenu(
+                              context: context,
+                              position: RelativeRect.fromLTRB(position.dx, position.dy, 0, 0),
+                              items: [
+                                const PopupMenuItem(
+                                  value: 1,
+                                  child: Text(
+                                    'menuItem 1',
+                                  ),
+                                ),
+                                const PopupMenuItem(
+                                  value: 2,
+                                  child: Text(
+                                    'menuItem 2',
+                                  ),
+                                ),
+                              ],
+                              elevation: 8.0,
+                            ).then((value) {
+                              if (value == null) {
+                                return;
+                              }
+
+                              debugPrint('menuItem $value tapped');
+                            });
+                          },
+                        ),
                       );
                     },
                     separatorBuilder: (BuildContext context, int index) => const Divider(),
