@@ -16,6 +16,8 @@ class DiariesPage extends HookConsumerWidget {
       Future(() {
         controller.getDiaries(isInit: true, isLoadingIndicatorShown: true);
       });
+
+      return;
     }, const []);
 
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
